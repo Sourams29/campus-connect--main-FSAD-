@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" type="image/png" href="image\favicon.ico">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #d8cfcf;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .login-box {
+            color: #CD354D;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            /* color: #544183; */
+        }
+        .log-below {
+            color: #313970;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+        .header h2 {
+            color: #3053D3;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .form-container label {
+            color: #3053D3;
+            font-size: 16px;
+            text-align: left;
+            display: block;
+            margin-bottom: 10px;
+            margin-left: 17px;
+        }
+        .form-container input[type="text"], .form-container input[type="password"] {
+            width: 90%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border-color: #8a77b7;
+            border-radius: 15px;
+            color: #986161;
+            font-size: 16px;
+        }
+        .form-container input[type="text"]::placeholder, 
+        .form-container input[type="password"]::placeholder {
+            color: #bbb;
+        }
+        .form-container button[type="submit"] {
+            width: 80%;
+            background-color: #3053D3;
+            color: white;
+            padding: 14px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button[type="submit"]:hover {
+            background-color: #0037ff;
+        }
+        .signup-link {
+            color: #3053D3;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .signup-link:hover {
+            color: #0037ff;
+        }
+        .signup-link a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .image-container {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .image-container img {
+            width: 50%;
+            height: 50%;
+            
+            background: 'https://erp.mitwpu.edu.in/New_Css/images/mit-wpu-drk-logo.png';
+        }
+        #error-message {
+        color: red;               /* Red color for the error text */
+        background-color: #f8d7da; /* Light red background for error */
+        border: 1px solid #f5c6cb; /* Red border */
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-bottom: 20px;
+        display: none; /* Initially hidden */
+        z-index: 1000; /* Ensure it appears above other content */
+        position: absolute;  /* Position it absolutely, so it doesn't affect layout */
+        margin-top: -50px;    margin-left: 230px;
+
+    }
+    .header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+
+
+        .back-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Space between SVG and header title */
+}
+
+.back-svg svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.back-svg svg:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+/* Title Styling */
+.header-title {
+    font-size: 1.5rem;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center; /* Center-aligns the title */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack SVG and title vertically on small screens */
+        align-items: flex-start;
+    }
+
+    .header-title {
+        text-align: left;
+        font-size: 1.25rem; /* Adjust title font size for smaller screens */
+        margin-top: 10px;
+    }
+}
+   
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="back-svg">
+              <a href="Home.html">  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                    <path d="M8.9995 22L8.74887 18.4911C8.61412 16.6046 10.1082 15 11.9995 15C13.8908 15 15.3849 16.6046 15.2501 18.4911L14.9995 22" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M2.35157 13.2135C1.99855 10.9162 1.82204 9.76763 2.25635 8.74938C2.69065 7.73112 3.65421 7.03443 5.58132 5.64106L7.02117 4.6C9.41847 2.86667 10.6171 2 12.0002 2C13.3832 2 14.5819 2.86667 16.9792 4.6L18.419 5.64106C20.3462 7.03443 21.3097 7.73112 21.744 8.74938C22.1783 9.76763 22.0018 10.9162 21.6488 13.2135L21.3478 15.1724C20.8473 18.4289 20.5971 20.0572 19.4292 21.0286C18.2613 22 16.5538 22 13.139 22H10.8614C7.44652 22 5.73909 22 4.57118 21.0286C3.40327 20.0572 3.15305 18.4289 2.65261 15.1724L2.35157 13.2135Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                
+                </svg> </a>
+            </div>
+            <h2 class="header-title">Welcome Back!</h2>
+        </div>
+
+        <div class="image-container">
+            <img src="https://erp.mitwpu.edu.in/New_Css/images/mit-wpu-drk-logo.png" alt="College Event">
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <div class="login-box">Login</div>
+        <p class="log-below">Please login to your Account</p>
+        
+        <div class="form-container">
+            <form action="/login" method="POST">
+                <label for="uname"><b>Email:</b></label>
+                <input type="text" id="uname" placeholder="Enter your email" name="uname" required>
+                
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" id="psw" placeholder="Enter your password" name="psw" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="/auth/signup">Signup here</a></p>
+        </div>
+       
+    </div>
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+    
+        if (error) {
+            const errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = decodeURIComponent(error.replace(/\+/g, ' '));
+            errorMessageElement.style.display = 'block'; // Show the error message
+    
+            // Hide the error message after 3 seconds
+            setTimeout(() => {
+                errorMessageElement.style.display = 'none'; // Hide the error message
+            }, 3000); // 3000 milliseconds = 3 seconds
+        }
+    </script>
+
+</body>
+</html>
